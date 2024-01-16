@@ -29,8 +29,8 @@ export default function CommentForm() {
     setContent(e.target.value);
   };
 
-  const createComment = async (e) => {
-    e.preventDefault();
+  const createComment = async (event) => {
+    event.preventDefault();
     try {
       console.log("ok");
       const response = await fetch("https://blog-api-i1ok.onrender.com/api/comments", {

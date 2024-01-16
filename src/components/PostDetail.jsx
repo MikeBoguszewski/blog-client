@@ -3,6 +3,7 @@ import { useParams } from "react-router-dom";
 import Comment from "./Comment";
 import CommentForm from "./CommentForm";
 import { format } from "date-fns";
+import he from "he"
 
 export default function PostDetail() {
   const [postInfo, setPostInfo] = useState(null);
@@ -33,13 +34,14 @@ export default function PostDetail() {
   }, [id]);
 
   if (!postInfo) return "";
+  const decodedContent = he.decode(postInfo.content)
   return (
     <div className="post-detail">
       <div className="info">
         <h1>{postInfo.title}</h1>
         <p>{postInfo.published}</p>
         <time>{format(new Date(postInfo.updatedAt), "yyyy-MM-dd")}</time>
-        <p className="content">{postInfo.content}</p>
+        <p className="content">{decodedContent}</p>
       </div>
       <div className="comments-container">
         <h2>{comments.length} Comments</h2>

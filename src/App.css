@@ -168,7 +168,6 @@ div.posts a.post h2 {
 /* Post detail page */
 div.post-detail {
   color: #102d10;
-  background-color: #ffffff;
   padding-top: 10px;
   height: calc(100vh - 60px);
 }
